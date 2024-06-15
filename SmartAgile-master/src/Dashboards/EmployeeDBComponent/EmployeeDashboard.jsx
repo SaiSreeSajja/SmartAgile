@@ -20,6 +20,7 @@ import AppsWebsites from './AppsWebsites';
 import Settings from './Settings';
 
 const EmployeeDashboard = () => {
+  const user=JSON.parse(localStorage.getItem("user"));
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -41,7 +42,7 @@ const EmployeeDashboard = () => {
           <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
-          <Avatar alt="User Avatar" src="/emp3.jpg" />
+          <Avatar alt="User Avatar" src={user.profile_photo ? `http://localhost:8000${user.profile_photo}` : ''} />
         </Toolbar>
       </AppBar>
       <div className='mt-8'>
@@ -135,3 +136,4 @@ function VerticalTabs() {
 }
 
 export default EmployeeDashboard;
+
