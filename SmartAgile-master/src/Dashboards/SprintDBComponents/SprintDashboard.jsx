@@ -1,4 +1,4 @@
-// src/components/EmployeeDBComponent/EmployeeDashboard.jsx
+// src/components/EmployeeDBComponent/SprintDashboard.jsx
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,6 +16,7 @@ import SHome from './SHome';
 
 
 const SprintDashboard = () => {
+  const user=JSON.parse(localStorage.getItem("user"));
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -37,7 +38,7 @@ const SprintDashboard = () => {
           <IconButton color="inherit">
             <NotificationsIcon />
           </IconButton>
-          <Avatar alt="User Avatar" src="/emp3.jpg" />
+          <Avatar alt="User Avatar" src={user.profile_photo ? `http://localhost:8000${user.profile_photo}` : ''} />
         </Toolbar>
       </AppBar>
       <div className='mt-8'>
@@ -112,3 +113,4 @@ function VerticalTabs() {
 }
 
 export default SprintDashboard;
+
